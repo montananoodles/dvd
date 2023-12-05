@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color: white;}
+    </style>
+</head>
+
+<body>
+    <button onclick="move()" id="dvdBt1"
+        style="font-weight: bold; font-size: 20px; top: 200px; left:50px; position: absolute; height: 150px; width: 200px;">
+        <img id=dvd1 src="media/dvdBlue.png" alt="dvdBlue" style="height:150px; width: 150px;"></button>
+
+        <button onclick="move2()" id="dvdBt2"
+        style="font-weight: bold; font-size: 20px; top: 200px; left:50px; position: absolute; height: 150px; width: 200px;">
+        <img id=dvd2 src="media/dvdPurple.png" alt="dvdPurple" style="height:150px; width: 150px;"></button>
+
+    <script>
+        let newTop = 0
+        let newLeft = 0
+        let newTop2 = 0
+        let newLeft2 = 0
+        let delta = 20
+        let gamma = 20
+        let alpha = 30
+        let beta = 30
+
+
+        const move = () => {
+            newTop += delta
+            dvdBt1.style.top = `${newTop}px`
+            if (newTop > window.screen.height || newTop < 0) {
+                delta = -delta
+                dvdBt1.style.backgroundColor = `Cyan`;
+                dvd1.src = "media/dvdRed.png"
+                document.body.style.backgroundColor= `orange`
+            }
+        }
+        setInterval(move, 50)
+
+        const slide = () => {
+            newLeft += gamma
+            dvdBt1.style.left = `${newLeft}px`
+            if (newLeft > window.screen.width || newLeft < 0) {
+                gamma = -gamma
+            dvdBt1.style.backgroundColor = `Red`;
+            dvd1.src="media/dvdGreen.png"
+            document.body.style.backgroundColor= `pink`
+        }}
+        setInterval(slide, 50)
+
+
+
+        const move2 = () => {
+            newTop2 += alpha
+            dvdBt2.style.top = `${newTop2}px`
+            if (newTop2 > window.screen.height || newTop2 < 0) {
+                alpha = -alpha
+                dvdBt2.style.backgroundColor = `red`;
+                dvd2.src = "media/dvdBlue.png"
+                document.body.style.backgroundColor= `lightblue`
+            }
+        }
+        setInterval(move2, 50)
+
+        const slide2 = () => {
+            newLeft2 += beta
+            dvdBt2.style.left = `${newLeft2}px`
+            if (newLeft2 > window.screen.width || newLeft2 < 0) {
+                beta = -beta
+            dvdBt2.style.backgroundColor = `blue`;
+            dvd2.src="media/dvdOrange.png"
+            document.body.style.backgroundColor= `LightGreen`
+        }}
+        setInterval(slide2, 50)
+
+
+
+    </script>
+</body>
+
+</html>
